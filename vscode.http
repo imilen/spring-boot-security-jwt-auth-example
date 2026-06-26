@@ -1,0 +1,25 @@
+@hostname = localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+
+@authHello = api/auth/hello
+@authRegister = api/auth/register
+@authLogin = api/auth/login
+@authProfile = api/auth/profile
+/* --------------------------------- VSCODE --------------------------------- */
+# VSCODE
+
+### {{authHello}}
+GET  http://{{host}}/{{authHello}}
+
+### {{authRegister}}
+POST http://{{host}}/{{authRegister}}
+
+### {{authLogin}}
+POST http://{{host}}/{{authLogin}}
+
+### {{authProfile}}
+GET  http://{{host}}/{{authProfile}}
+
+/* -------------------------------- INTELLIJ -------------------------------- */
+# INTELLIJ
