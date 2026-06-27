@@ -9,16 +9,28 @@
 /* --------------------------------- VSCODE --------------------------------- */
 # VSCODE
 
-### {{authHello}}
+### @name hello
 GET  http://{{host}}/{{authHello}}
 
-### {{authRegister}}
+### @name register
 POST http://{{host}}/{{authRegister}}
+Content-Type: application/json
 
-### {{authLogin}}
+{
+  "email": "demo@demo.com",
+  "password": "password"
+}
+
+### @name login
 POST http://{{host}}/{{authLogin}}
+Content-Type: application/json
 
-### {{authProfile}}
+{
+  "email": "demo@demo.com",
+  "password": "password"
+}
+
+### @name profile
 GET  http://{{host}}/{{authProfile}}
 
 /* -------------------------------- INTELLIJ -------------------------------- */
