@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring_boot_security_jwt_auth_example.dto.LoginRequest;
+import com.spring_boot_security_jwt_auth_example.dto.LoginResponse;
 import com.spring_boot_security_jwt_auth_example.dto.RegisterRequest;
 import com.spring_boot_security_jwt_auth_example.service.AuthService;
 
@@ -29,6 +31,11 @@ public class AuthController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void register(@RequestBody RegisterRequest request) {
 		authService.register(request);
+	}
+
+	@PostMapping("/login")
+	public LoginResponse login(@RequestBody LoginRequest request) {
+		return authService.login(request);
 	}
 
 }

@@ -7,10 +7,10 @@ import java.util.UUID;
 
 import javax.crypto.SecretKey;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.spring_boot_security_jwt_auth_example.config.JwtProperties;
-import com.spring_boot_security_jwt_auth_example.entity.User;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -34,7 +34,7 @@ public class JwtService {
 		this.secretKey = Keys.hmacShaKeyFor(keyBytes);
 	}
 
-	public String generateToken(User user) {
+	public String generateToken(UserDetails user) {
 		Instant now = Instant.now();
 		String uuid = UUID.randomUUID()
 				.toString();
@@ -42,7 +42,7 @@ public class JwtService {
 
 		return Jwts.builder()
 				.id(uuid)
-				.subject(user.getEmail())
+				.subject(user.getUsername())
 				.issuedAt(Date.from(now))
 				.expiration(expiration)
 				.signWith(this.secretKey, Jwts.SIG.HS256)
